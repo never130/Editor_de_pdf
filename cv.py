@@ -10,7 +10,7 @@ class PDF(FPDF):
         self.set_font("Helvetica", "B", 16)  # Tamaño reducido pero aún destacado
         self.cell(0, 10, "EVER LOZA RUIZ", ln=True, align="C")
         self.set_font("Helvetica", "B", 12)  # Tamaño reducido para ahorrar espacio
-        self.cell(0, 8, "Desarrollador Full Stack | Especialista en Ciencia de Datos e IA", ln=True, align="C")
+        self.cell(0, 8, "Full Stack Developer | Técnico Superior en Ciencia de Datos e IA", ln=True, align="C")
         
         # Información de contacto (centrada y con mejor espaciado)
         self.set_font("Helvetica", "", 10)  # Tamaño reducido para ahorrar espacio
@@ -59,18 +59,17 @@ pdf.section_title("EXPERIENCIA LABORAL")
 
 experiences = [
     {
-        "title": "DESARROLLADOR DE SOFTWARE",
-        "company": "Isidro Libre & Gourmet - Gastronomía",
-        "period": "Abr 2025 - Presente",
-        "technologies": "React, Node.js, Postgresql, Express, Typescrypt",  # Palabras clave para ATS
-        "bullets": [
-            "Desarrollo e implementación de sistema integral de gestión para restaurante con módulos de comandas, mesas y control de inventario",
-            "Diseño de arquitectura API REST para comunicación entre frontend y backend con Node.js y Express",
-            "Implementación de lógica automatizada para descuento de materia prima y gestión de stock en tiempo real",
-            "Desarrollo de interfaz de usuario interactiva con React utilizando componentes reutilizables",
-            "Optimización de operaciones diarias mediante automatización de reportes y cierres con reducción del 40% en tiempo operativo"
-        ]
-    },
+  "title": "DESARROLLO DE SOFTWARE - Visión Computacional",
+  "company": "El Dorado",
+  "period": "Abr 2025 - Jun 2025",
+  "technologies": "FastAPI, MongoDB, React, YOLOv8, OpenCV, WebSockets, Tailwind CSS, Axios, JavaScript, Python",
+  "bullets": [
+    "Desarrollo de sistema de visión computacional para detección automática de números en vagonetas mediante modelos YOLOv8 entrenados",
+    "Diseño de backend con FastAPI y MongoDB para almacenamiento persistente, API REST y notificaciones en tiempo real vía WebSockets",
+    "Implementación de procesamiento de imágenes y video, incluyendo carga manual y captura automática desde cámaras configurables",
+  ]
+}
+,
     {
         "title": "DESARROLLADOR FULL STACK",
         "company": "Tienda del Fuego Accesorios",
@@ -139,11 +138,11 @@ pdf.ln(4)
 # Certificaciones - Formato mejorado para ATS
 pdf.section_title("CERTIFICACIONES")
 certs = [
+    {"title": "SQL/NodeJS", "issuer": "Alkemy", "hours": "160h"},
     {"title": "Desarrollo Web Full Stack", "issuer": "Ministerio de Educación BA", "hours": "200h"},
     {"title": "Google Cloud Computing Fundamentals", "issuer": "Google", "hours": "40h"},
     {"title": "Algoritmos de JavaScript y Estructuras de Datos", "issuer": "FreeCodeCamp", "hours": "300h"},
     {"title": "Desarrollo Back End y APIs", "issuer": "FreeCodeCamp", "hours": "300h"},
-    {"title": "Desarrollo Front End", "issuer": "FreeCodeCamp", "hours": "300h"}
 ]
 
 pdf.set_font("Helvetica", "", normal_text)
