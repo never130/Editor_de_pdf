@@ -10,7 +10,7 @@ class PDF(FPDF):
         self.set_font("Helvetica", "B", 16)  # Tamaño reducido pero aún destacado
         self.cell(0, 10, "EVER LOZA RUIZ", ln=True, align="C")
         self.set_font("Helvetica", "B", 12)  # Tamaño reducido para ahorrar espacio
-        self.cell(0, 8, "Full Stack Developer | Técnico Superior en Ciencia de Datos e IA", ln=True, align="C")
+        self.cell(0, 8, "Software & AI Developer | Técnico Superior en Ciencia de Datos e IA", ln=True, align="C")
         
         # Información de contacto (centrada y con mejor espaciado)
         self.set_font("Helvetica", "", 10)  # Tamaño reducido para ahorrar espacio
@@ -46,11 +46,9 @@ title_size = 13   # Reducido pero manteniendo jerarquía visual
 pdf.section_title("PERFIL PROFESIONAL")
 pdf.set_font("Helvetica", "", normal_text)
 pdf.multi_cell(0, 7,
-    "Desarrollador Full Stack con especialización en Ciencia de Datos e Inteligencia Artificial. "
-    "Experiencia demostrada en construcción de aplicaciones web completas utilizando MERN Stack (MongoDB, Express, "
-    "React, Node.js) e implementación de soluciones basadas en datos. Certificado en desarrollo cloud (Google "
-    "Cloud) y metodologías ágiles. Capacidad para integrar análisis avanzados y modelos predictivos en "
-    "aplicaciones productivas."
+    "Software & AI Developer con formación técnica en Ciencia de Datos e Inteligencia Artificial. "
+    "Combinado con la implementación de soluciones inteligentes basadas en datos. Certificado en Cloud Computing (Google Cloud) y metodologías ágiles. "
+    "Capacidad comprobada para integrar análisis predictivo, visión computacional, sistemas expertos y visualización de datos en productos funcionales, escalables y explicables."
 )
 pdf.ln(5)
 
@@ -59,37 +57,46 @@ pdf.section_title("EXPERIENCIA LABORAL")
 
 experiences = [
     {
-  "title": "DESARROLLO DE SOFTWARE - Visión Computacional",
-  "company": "El Dorado",
-  "period": "Abr 2025 - Jun 2025",
-  "technologies": "FastAPI, MongoDB, React, YOLOv8, OpenCV, WebSockets, Tailwind CSS, Axios, JavaScript, Python",
-  "bullets": [
-    "Desarrollo de sistema de visión computacional para detección automática de números en vagonetas mediante modelos YOLOv8 entrenados",
-    "Diseño de backend con FastAPI y MongoDB para almacenamiento persistente, API REST y notificaciones en tiempo real vía WebSockets",
-    "Implementación de procesamiento de imágenes y video, incluyendo carga manual y captura automática desde cámaras configurables",
-  ]
-}
-,
+        "title": "DESARROLLO DE INTELIGENCIA ARTIFICAL - Sistema de Visión Computacional",
+        "company": "El Dorado",
+        "period": "May 2025 - Jul 2025",
+        "technologies": "FastAPI, MongoDB, React, YOLOv8, OpenCV, WebSockets, Tailwind CSS, Axios, JavaScript, Python",
+        "bullets": [
+            "Diseñé y entrené un modelo YOLOv8 personalizado para la detección automática de identificadores numéricos en vagonetas industriales.",
+            "Implementé una API RESTful robusta con FastAPI y almacenamiento NoSQL con MongoDB para gestión de registros históricos.",
+            "Desarrollé notificaciones en tiempo real utilizando WebSockets para mejorar la trazabilidad de los movimientos logísticos.",
+        ]
+    },   
     {
-        "title": "DESARROLLADOR FULL STACK",
+        "title": "DESARROLLO DE SOFTWARE - Sistema de Restaurantes",
+        "company": "Isidro Libre & Gourmet",
+        "period": "Abr 2025 - Jun 2025", 
+        "technologies": "NextJS, Node.js, PostgreSQL, Express, Typescript, TypeORM, JWT, Tailwind CSS",
+        "bullets": [
+            "Construí un sistema de comandas en tiempo real con gestión de stock y cierre automático diario utilizando Next.js y PostgreSQL.",
+            "Automaticé la deducción de materias primas al registrar ventas, optimizando la eficiencia del inventario.",
+            "Reduje los errores de carga manual en un 30% mediante interfaz de usuario simplificada y validación por backend."
+        ]
+    },
+    {
+        "title": "DESARROLLO FULL STACK",
         "company": "Tienda del Fuego Accesorios",
         "period": "Abr 2024 - Actualidad", 
         "technologies": "React, Node.js, MongoDB, Express, JavaScript, REST API",
         "bullets": [
-            "Desarrollo completo de plataforma e-commerce con incremento del 25% en ventas durante el primer trimestre de implementación",
-            "Integración de API de pagos con MercadoPago y gestión de transacciones seguras mediante JWT",
-            "Desarrollo de dashboard administrativo con métricas de ventas y gestión de inventario utilizando React y Redux"
+            "Desarrollé e implementé una plataforma e-commerce completa, aumentando un 25% las ventas en los primeros 3 meses.",
+            "Integré pasarela de pagos con MercadoPago y lógica de seguridad basada en JWT para autenticación segura.",
+            "Diseñé un dashboard de administración con métricas y CRUD de productos usando React + Redux."
         ]
     },
     {
         "title": "ANALISTA DE DATOS",
         "company": "Aeropuerto Internacional Trejo Noel",
         "period": "Mar 2024 - Oct 2024",
-        "technologies": "Python, Power BI, ETL, SQL, Pandas, NumPy",
+        "technologies": "Python, Power BI, ETL, DAX",
         "bullets": [
-            "Diseño e implementación de procesos ETL automatizados reduciendo tiempo de procesamiento en 40% utilizando Python y SQL",
-            "Creación de dashboards interactivos para visualización de KPIs operacionales utilizando Power BI",
-            "Análisis de grandes volúmenes de datos operativos para identificación de patrones y oportunidades de optimización"
+            "Diseñé dashboards interactivos para visualizar KPIs operativos utilizando Power BI.",
+            "Analicé grandes volúmenes de datos de tráfico aéreo para identificar cuellos de botella y oportunidades de mejora."
         ]
     }
 ]
@@ -110,8 +117,7 @@ pdf.add_page()
 # Habilidades Técnicas - Formato para mejor detección ATS
 pdf.section_title("HABILIDADES TÉCNICAS")
 skills = [
-    ("Lenguajes de Programación:", "Python, JavaScript, TypeScript, SQL, Java"),
-    ("Desarrollo Frontend:", "React, HTML5, CSS3, Bootstrap, Redux, Responsive Design"),
+    ("Desarrollo Frontend:", "React, HTML5, CSS3, Bootstrap, Redux, Responsive Design, Next.js"),
     ("Desarrollo Backend:", "Node.js, Express, FastAPI, Django, REST APIs, Microservicios"),
     ("Ciencia de Datos e IA:", "Pandas, NumPy, Scikit-learn, Power BI, Tableau, Machine Learning"),
     ("Bases de Datos:", "MongoDB, PostgreSQL, MySQL, Redis, Diseño de esquemas"),
@@ -157,22 +163,21 @@ pdf.section_title("PROYECTOS DESTACADOS")
 projects = [
     {
         "title": "Predicción de Energía Eólica con Machine Learning",
-        "tech": "Python, Scikit-learn, Pandas, API REST, Flask",
+        "tech": "Python, Scikit-learn, Pandas",
         "bullets": [
             "Desarrollo de modelo predictivo basado en Random Forest con 92% de precisión para pronóstico de generación eólica",
             "Procesamiento y limpieza de datasets con más de 20,000 registros históricos utilizando Pandas y NumPy",
-            "Implementación de API REST con Flask para integración con sistemas de monitoreo energético existentes"
         ]
     },
     {
-        "title": "Optimizador de Rutas Logísticas",
-        "tech": "Python, Algoritmos de Grafos, Matplotlib, GPS API",
-        "bullets": [
-            "Diseño de algoritmo de optimización basado en teoría de grafos reduciendo tiempos de entrega en 35%",
-            "Desarrollo de visualizaciones interactivas para análisis de rutas utilizando Matplotlib y Plotly",
-            "Integración con sistemas GPS en tiempo real mediante APIs para actualización dinámica de rutas"
-        ]
-    }
+    "title": "Sistema Experto para Diagnóstico de Enfermedades Respiratorias",
+    "tech": "Python, Flask, Sklearn, JSON Rules, Next.js, Tailwind CSS",
+    "bullets": [
+        "Desarrollo de un sistema experto híbrido con motor de inferencia desacoplado que aplica reglas SI-ENTONCES en formato JSON para el diagnóstico de enfermedades respiratorias comunes",
+        "Integración de un modelo supervisado (Árbol de Decisión) como respaldo predictivo cuando no se cumplen reglas, garantizando cobertura de casos y explicabilidad completa",
+        "Diseño de una interfaz web moderna con Next.js para ingreso de síntomas, visualización del diagnóstico y edición dinámica de reglas sin intervención del código fuente"
+    ]
+}
 ]
 
 for project in projects:
