@@ -10,11 +10,11 @@ class PDF(FPDF):
         self.set_font("Helvetica", "B", 16)  # Tamaño reducido pero aún destacado
         self.cell(0, 10, "EVER LOZA RUIZ", ln=True, align="C")
         self.set_font("Helvetica", "B", 12)  # Tamaño reducido para ahorrar espacio
-        self.cell(0, 8, "Full Stack Developer | Técnico Superior en Ciencia de Datos e IA", ln=True, align="C")
+        self.cell(0, 8, "Software & AI Developer | Técnico Superior en Ciencia de Datos e IA", ln=True, align="C")
         
         # Información de contacto (centrada y con mejor espaciado)
         self.set_font("Helvetica", "", 10)  # Tamaño reducido para ahorrar espacio
-        self.cell(0, 7, "Rio Grande, Tierra del Fuego | never130@hotmail.com | +54 2964 452631", ln=True, align="C")
+        self.cell(0, 7, "Rio Grande, Tierra del Fuego | everlozaruiz@gmail.com | +54 2964 452631", ln=True, align="C")
         self.cell(0, 7, "Linkedin: never130 | Github: never130 | Portfolio: everloza-porfolio.netlify.app", ln=True, align="C")
           # Separado para evitar línea demasiado larga
         self.ln(5)  # Espacio muy reducido para maximizar espacio
@@ -46,11 +46,7 @@ title_size = 13   # Reducido pero manteniendo jerarquía visual
 pdf.section_title("PERFIL PROFESIONAL")
 pdf.set_font("Helvetica", "", normal_text)
 pdf.multi_cell(0, 7,
-    "Desarrollador Full Stack con especialización en Ciencia de Datos e Inteligencia Artificial. "
-    "Experiencia demostrada en construcción de aplicaciones web completas utilizando MERN Stack (MongoDB, Express, "
-    "React, Node.js) e implementación de soluciones basadas en datos. Certificado en desarrollo cloud (Google "
-    "Cloud) y metodologías ágiles. Capacidad para integrar análisis avanzados y modelos predictivos en "
-    "aplicaciones productivas."
+    "Software & AI Developer con formación técnica en Ciencia de Datos e Inteligencia Artificial. Experiencia demostrada en el desarrollo de aplicaciones web y móviles de extremo a extremo, integrando soluciones de backend, frontend y bases de datos modernas. Competente en múltiples stacks tecnológicos (JavaScript/TypeScript, Python, Node.js, React, Flutter, FastAPI, MongoDB) e implementación de soluciones basadas en datos. Certificado en desarrollo cloud (Google Cloud) y metodologías ágiles. Capacidad para integrar análisis avanzados, visión computacional y modelos predictivos en sistemas productivos."
 )
 pdf.ln(5)
 
@@ -59,7 +55,19 @@ pdf.section_title("EXPERIENCIA LABORAL")
 
 experiences = [
     {
-  "title": "DESARROLLO DE SOFTWARE - Visión Computacional",
+  "title": "DESARROLLO MÓVIL - App de Identificación de Llamadas",
+  "company": "Macrobow",
+  "period": "Jul 2025 - Actualidad",
+  "technologies": "Flutter, Express.js, Firebase, Node.js, Firebase Authentication, Dart",
+  "bullets": [
+    "Desarrollo de aplicación móvil de identificación de llamadas enfocada en agentes inmobiliarios para verificación de exclusividad de clientes",
+    "Diseño de backend con Express.js y Firebase para sincronización de datos en tiempo real y autenticación de usuarios mediante SMS",
+    "Construcción de una interfaz móvil fluida e intuitiva con Flutter, adaptada a las necesidades del sector inmobiliario"
+  ]
+}
+,
+    {
+  "title": "DESARROLLO DE INTELIGENCIA ARTIFICIAL - Visión Computacional",
   "company": "El Dorado",
   "period": "Abr 2025 - Jun 2025",
   "technologies": "FastAPI, MongoDB, React, YOLOv8, OpenCV, WebSockets, Tailwind CSS, Axios, JavaScript, Python",
@@ -73,10 +81,10 @@ experiences = [
     {
         "title": "DESARROLLADOR FULL STACK",
         "company": "Tienda del Fuego Accesorios",
-        "period": "Abr 2024 - Actualidad", 
+        "period": "Abr 2024 - May 2024", 
         "technologies": "React, Node.js, MongoDB, Express, JavaScript, REST API",
         "bullets": [
-            "Desarrollo completo de plataforma e-commerce con incremento del 25% en ventas durante el primer trimestre de implementación",
+            "Desarrollo completo de plataforma e-commerce con las funcionalidades de gestión de productos, usuarios, pedidos y envíos",
             "Integración de API de pagos con MercadoPago y gestión de transacciones seguras mediante JWT",
             "Desarrollo de dashboard administrativo con métricas de ventas y gestión de inventario utilizando React y Redux"
         ]
@@ -84,10 +92,9 @@ experiences = [
     {
         "title": "ANALISTA DE DATOS",
         "company": "Aeropuerto Internacional Trejo Noel",
-        "period": "Mar 2024 - Oct 2024",
+        "period": "Mar 2024 - Ago 2024",
         "technologies": "Python, Power BI, ETL, SQL, Pandas, NumPy",
         "bullets": [
-            "Diseño e implementación de procesos ETL automatizados reduciendo tiempo de procesamiento en 40% utilizando Python y SQL",
             "Creación de dashboards interactivos para visualización de KPIs operacionales utilizando Power BI",
             "Análisis de grandes volúmenes de datos operativos para identificación de patrones y oportunidades de optimización"
         ]
@@ -106,24 +113,23 @@ for exp in experiences:
         pdf.multi_cell(0, 5.5, bullet)
     pdf.ln(2)
 
-pdf.add_page()
 # Habilidades Técnicas - Formato para mejor detección ATS
-pdf.section_title("HABILIDADES TÉCNICAS")
-skills = [
-    ("Lenguajes de Programación:", "Python, JavaScript, TypeScript, SQL, Java"),
-    ("Desarrollo Frontend:", "React, HTML5, CSS3, Bootstrap, Redux, Responsive Design"),
-    ("Desarrollo Backend:", "Node.js, Express, FastAPI, Django, REST APIs, Microservicios"),
-    ("Ciencia de Datos e IA:", "Pandas, NumPy, Scikit-learn, Power BI, Tableau, Machine Learning"),
-    ("Bases de Datos:", "MongoDB, PostgreSQL, MySQL, Redis, Diseño de esquemas"),
-    ("Cloud & DevOps:", "AWS (EC2, S3), Google Cloud Platform, Docker, CI/CD, Git")
-]
+# pdf.section_title("HABILIDADES TÉCNICAS")
+# skills = [
+#     ("Lenguajes de Programación:", "Python, JavaScript, TypeScript, SQL, Java"),
+#     ("Desarrollo Frontend:", "React, HTML5, CSS3, Bootstrap, Redux, Responsive Design"),
+#     ("Desarrollo Backend:", "Node.js, Express, FastAPI, Django, REST APIs, Microservicios"),
+#     ("Ciencia de Datos e IA:", "Pandas, NumPy, Scikit-learn, Power BI, Tableau, Machine Learning"),
+#     ("Bases de Datos:", "MongoDB, PostgreSQL, MySQL, Redis, Diseño de esquemas"),
+#     ("Cloud & DevOps:", "AWS (EC2, S3), Google Cloud Platform, Docker, CI/CD, Git")
+# ]
 
-for skill, details in skills:
-    pdf.set_font("Helvetica", "B", normal_text)
-    pdf.cell(55, 6, skill, ln=0)  # Reducido para ahorrar espacio
-    pdf.set_font("Helvetica", "", normal_text)
-    pdf.multi_cell(0, 6, details)
-pdf.ln(5)
+# for skill, details in skills:
+#     pdf.set_font("Helvetica", "B", normal_text)
+#     pdf.cell(55, 6, skill, ln=0)  # Reducido para ahorrar espacio
+#     pdf.set_font("Helvetica", "", normal_text)
+#     pdf.multi_cell(0, 6, details)
+# pdf.ln(5)
 
 # Segunda Página
 
@@ -136,7 +142,7 @@ pdf.cell(0, 6, "Centro Politécnico Superior Malvinas Argentinas | 2023-2025", l
 pdf.ln(4)
 
 # Certificaciones - Formato mejorado para ATS
-pdf.section_title("CERTIFICACIONES")
+pdf.section_title("CERTIFICACIONES RELEVANTES")
 certs = [
     {"title": "SQL/NodeJS", "issuer": "Alkemy", "hours": "160h"},
     {"title": "Desarrollo Web Full Stack", "issuer": "Ministerio de Educación BA", "hours": "200h"},
@@ -165,12 +171,12 @@ projects = [
         ]
     },
     {
-        "title": "Optimizador de Rutas Logísticas",
-        "tech": "Python, Algoritmos de Grafos, Matplotlib, GPS API",
+        "title": "Sistema Experto para el Diagnóstico de Enfermedades Respiratorias",
+        "tech": "Python, Flask, DecisionTree, JSON, Next.js, Tailwind CSS",
         "bullets": [
-            "Diseño de algoritmo de optimización basado en teoría de grafos reduciendo tiempos de entrega en 35%",
-            "Desarrollo de visualizaciones interactivas para análisis de rutas utilizando Matplotlib y Plotly",
-            "Integración con sistemas GPS en tiempo real mediante APIs para actualización dinámica de rutas"
+            "Desarrollo de sistema experto híbrido para diagnóstico de enfermedades respiratorias utilizando reglas médicas SI-ENTONCES y modelos de Machine Learning",
+            "Implementación de backend con Flask y motor de inferencia desacoplado capaz de evaluar reglas personalizables y respaldarse con modelos de árbol de decisión",
+            "Diseño de frontend moderno con Next.js y Tailwind CSS, con interfaz intuitiva para ingreso de síntomas, visualización de resultados y gestión de reglas",
         ]
     }
 ]

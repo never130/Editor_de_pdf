@@ -10,11 +10,11 @@ class PDF(FPDF):
         self.set_font("Helvetica", "B", 16)  # Reduced but still prominent size
         self.cell(0, 10, "EVER LOZA RUIZ", ln=True, align="C")
         self.set_font("Helvetica", "B", 12)  # Reduced size to save space
-        self.cell(0, 8, "Full Stack Developer | Data Science & AI Specialist", ln=True, align="C")
+        self.cell(0, 8, " Software & AI Developer  | Advanced Technician in Data Science and AI", ln=True, align="C")
 
         # Contact information (centered with better spacing)
         self.set_font("Helvetica", "", 10)  # Reduced size to save space
-        self.cell(0, 7, "Rio Grande, Tierra del Fuego | never130@hotmail.com | +54 2964 452631", ln=True, align="C")
+        self.cell(0, 7, "Rio Grande, Tierra del Fuego | everlozaruiz@gmail.com | +54 2964 452631", ln=True, align="C")
         self.cell(0, 7, "Linkedin: never130 | Github: never130 | Portfolio: everloza-porfolio.netlify.app", ln=True, align="C")
         # Separated to avoid overly long line
         self.ln(5)  # Very small space to maximize space
@@ -46,11 +46,7 @@ title_size = 13   # Reduced but maintaining visual hierarchy
 pdf.section_title("PROFESSIONAL PROFILE")
 pdf.set_font("Helvetica", "", normal_text)
 pdf.multi_cell(0, 7,
-    "Full Stack Developer with specialization in Data Science and Artificial Intelligence. "
-    "Demonstrated experience in building complete web applications using MERN Stack (MongoDB, Express, "
-    "React, Node.js) and implementing data-driven solutions. Certified in cloud development (Google "
-    "Cloud) and agile methodologies. Ability to integrate advanced analytics and predictive models into "
-    "production applications."
+    "Software & AI Developer with a technical background in Data Science and Artificial Intelligence. Proven experience in end-to-end development of web and mobile applications, integrating backend, frontend, and modern database solutions. Proficient in multiple technology stacks (JavaScript/TypeScript, Python, Node.js, React, Flutter, FastAPI, MongoDB) and in implementing data-driven solutions. Certified in cloud development (Google Cloud) and agile methodologies. Skilled in integrating advanced analytics, computer vision, and predictive models into production systems."
 )
 pdf.ln(5)
 
@@ -58,6 +54,18 @@ pdf.ln(5)
 pdf.section_title("WORK EXPERIENCE")
 
 experiences = [
+    {
+  "title": "MOBILE DEVELOPMENT - Call Identification App",
+  "company": "Macrobow",
+  "period": "Jul 2025 - Present",
+  "technologies": "Flutter, Express.js, Firebase, Node.js, Firebase Authentication, Dart",
+  "bullets": [
+    "Development of a mobile call identification app tailored for real estate agents to verify client exclusivity",
+    "Backend design using Express.js and Firebase for real-time data synchronization and user authentication via SMS",
+    "Creation of a smooth and intuitive mobile interface with Flutter, adapted to the specific needs of the real estate sector"
+  ]
+}
+,
     {
         "title": "SOFTWARE DEVELOPER",
         "company": "Isidro Libre & Gourmet - Gastronomy",
@@ -85,8 +93,8 @@ experiences = [
     {
         "title": "DATA ANALYST",
         "company": "Aeropuerto Internacional Trejo Noel",
-        "period": "Mar 2024 - Oct 2024",
-        "technologies": "Python, Power BI, ETL, SQL, Pandas, NumPy",
+        "period": "Mar 2024 - Aug 2024",
+        "technologies": "Python, Power BI, ETL, Pandas, NumPy",
         "bullets": [
             "Design and implementation of automated ETL processes reducing processing time by 40% using Python and SQL",
             "Creation of interactive dashboards for visualization of operational KPIs using Power BI",
@@ -107,24 +115,24 @@ for exp in experiences:
         pdf.multi_cell(0, 5.5, bullet)
     pdf.ln(2)
 
-pdf.add_page()
-# Technical Skills - Format for better ATS detection
-pdf.section_title("TECHNICAL SKILLS")
-skills = [
-    ("Programming Languages:", "Python, JavaScript, TypeScript, SQL, Java"),
-    ("Frontend Development:", "React, HTML5, CSS3, Bootstrap, Redux, Responsive Design"),
-    ("Backend Development:", "Node.js, Express, FastAPI, Django, REST APIs, Microservices"),
-    ("Data Science & AI:", "Pandas, NumPy, Scikit-learn, Power BI, Tableau, Machine Learning"),
-    ("Databases:", "MongoDB, PostgreSQL, MySQL, Redis, Schema Design"),
-    ("Cloud & DevOps:", "AWS (EC2, S3), Google Cloud Platform, Docker, CI/CD, Git")
-]
+# pdf.add_page()
+# # Technical Skills - Format for better ATS detection
+# pdf.section_title("TECHNICAL SKILLS")
+# skills = [
+#     ("Programming Languages:", "Python, JavaScript, TypeScript, SQL, Java"),
+#     ("Frontend Development:", "React, HTML5, CSS3, Bootstrap, Redux, Responsive Design"),
+#     ("Backend Development:", "Node.js, Express, FastAPI, Django, REST APIs, Microservices"),
+#     ("Data Science & AI:", "Pandas, NumPy, Scikit-learn, Power BI, Tableau, Machine Learning"),
+#     ("Databases:", "MongoDB, PostgreSQL, MySQL, Redis, Schema Design"),
+#     ("Cloud & DevOps:", "AWS (EC2, S3), Google Cloud Platform, Docker, CI/CD, Git")
+# ]
 
-for skill, details in skills:
-    pdf.set_font("Helvetica", "B", normal_text)
-    pdf.cell(55, 6, skill, ln=0)  # Reduced to save space
-    pdf.set_font("Helvetica", "", normal_text)
-    pdf.multi_cell(0, 6, details)
-pdf.ln(5)
+# for skill, details in skills:
+#     pdf.set_font("Helvetica", "B", normal_text)
+#     pdf.cell(55, 6, skill, ln=0)  # Reduced to save space
+#     pdf.set_font("Helvetica", "", normal_text)
+#     pdf.multi_cell(0, 6, details)
+# pdf.ln(5)
 
 # Second Page
 
@@ -166,14 +174,15 @@ projects = [
         ]
     },
     {
-        "title": "Logistics Route Optimizer",
-        "tech": "Python, Graph Algorithms, Matplotlib, GPS API",
-        "bullets": [
-            "Design of an optimization algorithm based on graph theory reducing delivery times by 35%",
-            "Development of interactive visualizations for route analysis using Matplotlib and Plotly",
-            "Integration with real-time GPS systems via APIs for dynamic route updates"
-        ]
-    }
+  "title": "Expert System for Respiratory Disease Diagnosis",
+  "tech": "Python, Flask, DecisionTree, JSON, Next.js, Tailwind CSS",
+  "bullets": [
+    "Development of a hybrid expert system for diagnosing respiratory diseases using medical IF-THEN rules and Machine Learning models",
+    "Implementation of a decoupled inference engine backend with Flask, capable of evaluating customizable rules and backed by Decision Tree models",
+    "Design of a modern frontend using Next.js and Tailwind CSS, with an intuitive interface for symptom input, results visualization, and rule management"
+  ]
+}
+
 ]
 
 for project in projects:
