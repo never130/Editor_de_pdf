@@ -11,6 +11,7 @@ class PDF(FPDF):
         self.cell(0, 10, "EVER LOZA RUIZ", ln=True, align="C")
         self.set_font("Helvetica", "B", 12)  # Tamaño reducido para ahorrar espacio
         self.cell(0, 8, "Software & AI Developer | Técnico Superior en Ciencia de Datos e IA", ln=True, align="C")
+        self.cell(0, 8, "Software & AI Developer | Técnico Superior en Ciencia de Datos e IA", ln=True, align="C")
         
         # Información de contacto (centrada y con mejor espaciado)
         self.set_font("Helvetica", "", 10)  # Tamaño reducido para ahorrar espacio
@@ -79,7 +80,7 @@ experiences = [
 }
 ,
     {
-        "title": "DESARROLLADOR FULL STACK",
+        "title": "DESARROLLO FULL STACK",
         "company": "Tienda del Fuego Accesorios",
         "period": "Abr 2024 - May 2024", 
         "technologies": "React, Node.js, MongoDB, Express, JavaScript, REST API",
@@ -163,11 +164,10 @@ pdf.section_title("PROYECTOS DESTACADOS")
 projects = [
     {
         "title": "Predicción de Energía Eólica con Machine Learning",
-        "tech": "Python, Scikit-learn, Pandas, API REST, Flask",
+        "tech": "Python, Scikit-learn, Pandas",
         "bullets": [
             "Desarrollo de modelo predictivo basado en Random Forest con 92% de precisión para pronóstico de generación eólica",
             "Procesamiento y limpieza de datasets con más de 20,000 registros históricos utilizando Pandas y NumPy",
-            "Implementación de API REST con Flask para integración con sistemas de monitoreo energético existentes"
         ]
     },
     {
