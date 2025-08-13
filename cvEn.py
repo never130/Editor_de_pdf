@@ -10,21 +10,12 @@ class PDF(FPDF):
         self.set_font("Helvetica", "B", 16)  # Reduced size but still prominent
         self.cell(0, 10, "EVER LOZA RUIZ", ln=True, align="C")
         self.set_font("Helvetica", "B", 12)  # Reduced size to save space
-<<<<<<< HEAD
         self.cell(0, 8, " Software & AI Developer  | Advanced Technician in Data Science and AI", ln=True, align="C")
 
         # Contact information (centered with better spacing)
         self.set_font("Helvetica", "", 10)  # Reduced size to save space
         self.cell(0, 7, "Rio Grande, Tierra del Fuego | everlozaruiz@gmail.com | +54 2964 452631", ln=True, align="C")
-        self.cell(0, 7, "Linkedin: never130 | Github: never130 | Portfolio: everloza-porfolio.netlify.app", ln=True, align="C")
-=======
-        self.cell(0, 8, "Software & AI Developer | Advanced Technician in Data Science and AI", ln=True, align="C")
-        
-        # Contact information (centered with better spacing)
-        self.set_font("Helvetica", "", 10)  # Reduced size to save space
-        self.cell(0, 7, "Rio Grande, Tierra del Fuego | never130@hotmail.com | +54 2964 452631", ln=True, align="C")
-        self.cell(0, 7, "Linkedin: never130 | Github: never130 | Portfolio: everloza-portfolio.netlify.app", ln=True, align="C")
->>>>>>> 2ed4a7b9954df2d346981df8b971ec5c9d3a0648
+        self.cell(0, 7, "Linkedin: www.linkedin.com/in/never130 | Github: www.github.com/never130 | Portfolio: https://everloza-porfolio.netlify.app", ln=True, align="C")
         # Separated to avoid overly long line
         self.ln(5)  # Very reduced space to maximize space
 
@@ -55,13 +46,7 @@ title_size = 13   # Reduced but maintaining visual hierarchy
 pdf.section_title("PROFESSIONAL PROFILE")
 pdf.set_font("Helvetica", "", normal_text)
 pdf.multi_cell(0, 7,
-<<<<<<< HEAD
-    "Software & AI Developer with a technical background in Data Science and Artificial Intelligence. Proven experience in end-to-end development of web and mobile applications, integrating backend, frontend, and modern database solutions. Proficient in multiple technology stacks (JavaScript/TypeScript, Python, Node.js, React, Flutter, FastAPI, MongoDB) and in implementing data-driven solutions. Certified in cloud development (Google Cloud) and agile methodologies. Skilled in integrating advanced analytics, computer vision, and predictive models into production systems."
-=======
-    "Software & AI Developer with technical training in Data Science and Artificial Intelligence. "
-    "Combined with the implementation of intelligent data-driven solutions. Certified in Cloud Computing (Google Cloud) and agile methodologies. "
-    "Proven ability to integrate predictive analytics, computer vision, expert systems, and data visualization into functional, scalable, and explainable products."
->>>>>>> 2ed4a7b9954df2d346981df8b971ec5c9d3a0648
+    "Software & AI Developer with a technical background in Data Science and Artificial Intelligence. Proven experience in end-to-end development of web and mobile applications, integrating backend, frontend, and modern database solutions. Proficient in multiple technology stacks (JavaScript/TypeScript, Python, Node.js, React, Flutter, FastAPI, MongoDB) and in implementing data-driven solutions. Skilled in integrating advanced analytics, computer vision, and predictive models into production systems."
 )
 pdf.ln(5)
 
@@ -70,40 +55,21 @@ pdf.section_title("WORK EXPERIENCE")
 
 experiences = [
     {
-<<<<<<< HEAD
-  "title": "MOBILE DEVELOPMENT - Call Identification App",
-  "company": "Macrobow",
-  "period": "Jul 2025 - Present",
-  "technologies": "Flutter, Express.js, Firebase, Node.js, Firebase Authentication, Dart",
-  "bullets": [
-    "Development of a mobile call identification app tailored for real estate agents to verify client exclusivity",
-    "Backend design using Express.js and Firebase for real-time data synchronization and user authentication via SMS",
-    "Creation of a smooth and intuitive mobile interface with Flutter, adapted to the specific needs of the real estate sector"
-  ]
-}
-,
-    {
-        "title": "SOFTWARE DEVELOPER",
-        "company": "Isidro Libre & Gourmet - Gastronomy",
-        "period": "Apr 2025 - Present",
-        "technologies": "React, Node.js, Postgresql, Express, Typescrypt",  # Keywords for ATS
-=======
-        "title": "ARTIFICIAL INTELLIGENCE DEVELOPMENT - Computer Vision System",
-        "company": "El Dorado",
-        "period": "May 2025 - Jul 2025",
-        "technologies": "FastAPI, MongoDB, React, YOLOv8, OpenCV, WebSockets, Tailwind CSS, Axios, JavaScript, Python",
->>>>>>> 2ed4a7b9954df2d346981df8b971ec5c9d3a0648
+        "title": "MOBILE DEVELOPMENT - Call Identification App",
+        "company": "Macrobow",
+        "period": "Jul 2025 - Aug 2025",
+        "technologies": "Flutter, Express.js, Firebase, Node.js, Firebase Authentication, Dart",
         "bullets": [
-            "Designed and trained a custom YOLOv8 model for automatic detection of numeric identifiers on industrial carts.",
-            "Implemented a robust RESTful API with FastAPI and NoSQL storage with MongoDB for managing historical records.",
-            "Developed real-time notifications using WebSockets to enhance logistical movement traceability.",
+            "Development of a mobile call identification app tailored for real estate agents to verify client exclusivity",
+            "Backend design using Express.js and Firebase for real-time data synchronization and user authentication via SMS",
+            "Creation of a smooth and intuitive mobile interface with Flutter, adapted to the specific needs of the real estate sector"
         ]
     },
     {
         "title": "SOFTWARE DEVELOPMENT - Restaurant System",
-        "company": "Isidro Libre & Gourmet",
+        "company": "Isidro Libre & Gourmet - Gastronomy",
         "period": "Apr 2025 - Jun 2025",
-        "technologies": "NextJS, Node.js, PostgreSQL, Express, Typescript, TypeORM, JWT, Tailwind CSS",
+        "technologies": "Node.js, PostgreSQL, Express, Typescript, TypeORM, JWT, Tailwind CSS",
         "bullets": [
             "Built a real-time order management system with stock control and automatic daily closing using Next.js and PostgreSQL.",
             "Automated raw material deduction upon sales registration, optimizing inventory efficiency.",
@@ -111,9 +77,20 @@ experiences = [
         ]
     },
     {
+        "title": "AI SOFTWARE DEVELOPMENT - Vision System for Industrial Carts",
+        "company": "El Dorado",
+        "period": "Apr 2025 - Jun 2025",
+        "technologies": "React, Node.js, Postgresql, Express, Typescript",  # Keywords for ATS
+        "bullets": [
+            "Designed and trained a custom YOLOv8 model for automatic detection of numeric identifiers on industrial carts.",
+            "Implemented a robust RESTful API with FastAPI and NoSQL storage with MongoDB for managing historical records.",
+            "Developed real-time notifications using WebSockets to enhance logistical movement traceability.",
+        ]
+    },
+    {
         "title": "FULL STACK DEVELOPMENT",
         "company": "Tienda del Fuego Accesorios",
-        "period": "Apr 2024 - Present",
+        "period": "Feb 2024 - May 2024",
         "technologies": "React, Node.js, MongoDB, Express, JavaScript, REST API",
         "bullets": [
             "Developed and deployed a complete e-commerce platform, increasing sales by 25% in the first 3 months.",
@@ -123,15 +100,9 @@ experiences = [
     },
     {
         "title": "DATA ANALYST",
-<<<<<<< HEAD
         "company": "Aeropuerto Internacional Trejo Noel",
         "period": "Mar 2024 - Aug 2024",
         "technologies": "Python, Power BI, ETL, Pandas, NumPy",
-=======
-        "company": "Trejo Noel International Airport",
-        "period": "Mar 2024 - Oct 2024",
-        "technologies": "Python, Power BI, ETL, DAX",
->>>>>>> 2ed4a7b9954df2d346981df8b971ec5c9d3a0648
         "bullets": [
             "Designed interactive dashboards to visualize operational KPIs using Power BI.",
             "Analyzed large volumes of air traffic data to identify bottlenecks and improvement opportunities."
@@ -151,7 +122,6 @@ for exp in experiences:
         pdf.multi_cell(0, 5.5, bullet)
     pdf.ln(2)
 
-<<<<<<< HEAD
 # pdf.add_page()
 # # Technical Skills - Format for better ATS detection
 # pdf.section_title("TECHNICAL SKILLS")
@@ -163,18 +133,6 @@ for exp in experiences:
 #     ("Databases:", "MongoDB, PostgreSQL, MySQL, Redis, Schema Design"),
 #     ("Cloud & DevOps:", "AWS (EC2, S3), Google Cloud Platform, Docker, CI/CD, Git")
 # ]
-=======
-pdf.add_page()
-# Technical Skills - Format for better ATS detection
-pdf.section_title("TECHNICAL SKILLS")
-skills = [
-    ("Frontend Development:", "React, HTML5, CSS3, Bootstrap, Redux, Responsive Design, Next.js"),
-    ("Backend Development:", "Node.js, Express, FastAPI, Django, REST APIs, Microservices"),
-    ("Data Science & AI:", "Pandas, NumPy, Scikit-learn, Power BI, Tableau, Machine Learning"),
-    ("Databases:", "MongoDB, PostgreSQL, MySQL, Redis, Schema Design"),
-    ("Cloud & DevOps:", "AWS (EC2, S3), Google Cloud Platform, Docker, CI/CD, Git")
-]
->>>>>>> 2ed4a7b9954df2d346981df8b971ec5c9d3a0648
 
 # for skill, details in skills:
 #     pdf.set_font("Helvetica", "B", normal_text)
@@ -222,7 +180,6 @@ projects = [
         ]
     },
     {
-<<<<<<< HEAD
   "title": "Expert System for Respiratory Disease Diagnosis",
   "tech": "Python, Flask, DecisionTree, JSON, Next.js, Tailwind CSS",
   "bullets": [
@@ -232,16 +189,6 @@ projects = [
   ]
 }
 
-=======
-        "title": "Expert System for Respiratory Disease Diagnosis",
-        "tech": "Python, Flask, Sklearn, JSON Rules, Next.js, Tailwind CSS",
-        "bullets": [
-            "Developed a hybrid expert system with a decoupled inference engine applying IF-THEN JSON rules for common respiratory disease diagnosis",
-            "Integrated a supervised model (Decision Tree) as backup predictor when no rules are triggered, ensuring case coverage and full explainability",
-            "Designed a modern web interface with Next.js for symptom input, diagnosis display, and dynamic rule editing without source code intervention"
-        ]
-    }
->>>>>>> 2ed4a7b9954df2d346981df8b971ec5c9d3a0648
 ]
 
 for project in projects:
@@ -266,4 +213,4 @@ pdf.cell(0, 6, "Professional (B2)", ln=True)
 pdf.ln(3)
 
 # Save PDF
-pdf.output("CV_EverLoza_FullStack_DataScience_ATS_EN.pdf")
+pdf.output("CV_EverLoza_dev.pdf")

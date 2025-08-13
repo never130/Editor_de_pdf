@@ -11,12 +11,11 @@ class PDF(FPDF):
         self.cell(0, 10, "EVER LOZA RUIZ", ln=True, align="C")
         self.set_font("Helvetica", "B", 12)  # Tamaño reducido para ahorrar espacio
         self.cell(0, 8, "Software & AI Developer | Técnico Superior en Ciencia de Datos e IA", ln=True, align="C")
-        self.cell(0, 8, "Software & AI Developer | Técnico Superior en Ciencia de Datos e IA", ln=True, align="C")
         
         # Información de contacto (centrada y con mejor espaciado)
         self.set_font("Helvetica", "", 10)  # Tamaño reducido para ahorrar espacio
         self.cell(0, 7, "Rio Grande, Tierra del Fuego | everlozaruiz@gmail.com | +54 2964 452631", ln=True, align="C")
-        self.cell(0, 7, "Linkedin: never130 | Github: never130 | Portfolio: everloza-porfolio.netlify.app", ln=True, align="C")
+        self.cell(0, 7, "Linkedin: www.linkedin.com/in/never130 | Github: www.github.com/never130 | Portfolio: https://everloza-porfolio.netlify.app", ln=True, align="C")
           # Separado para evitar línea demasiado larga
         self.ln(5)  # Espacio muy reducido para maximizar espacio
 
@@ -47,7 +46,7 @@ title_size = 13   # Reducido pero manteniendo jerarquía visual
 pdf.section_title("PERFIL PROFESIONAL")
 pdf.set_font("Helvetica", "", normal_text)
 pdf.multi_cell(0, 7,
-    "Software & AI Developer con formación técnica en Ciencia de Datos e Inteligencia Artificial. Experiencia demostrada en el desarrollo de aplicaciones web y móviles de extremo a extremo, integrando soluciones de backend, frontend y bases de datos modernas. Competente en múltiples stacks tecnológicos (JavaScript/TypeScript, Python, Node.js, React, Flutter, FastAPI, MongoDB) e implementación de soluciones basadas en datos. Certificado en desarrollo cloud (Google Cloud) y metodologías ágiles. Capacidad para integrar análisis avanzados, visión computacional y modelos predictivos en sistemas productivos."
+    "Software & AI Developer con formación técnica en Ciencia de Datos e Inteligencia Artificial. Experiencia demostrada en el desarrollo de aplicaciones web y móviles de extremo a extremo, integrando soluciones de backend, frontend y bases de datos modernas. Competente en múltiples stacks tecnológicos (JavaScript/TypeScript, Python, Node.js, React, Flutter, FastAPI, MongoDB) e implementación de soluciones basadas en datos. Capacidad para integrar análisis avanzados, visión computacional y modelos predictivos en sistemas productivos."
 )
 pdf.ln(5)
 
@@ -58,7 +57,7 @@ experiences = [
     {
   "title": "DESARROLLO MÓVIL - App de Identificación de Llamadas",
   "company": "Macrobow",
-  "period": "Jul 2025 - Actualidad",
+  "period": "Jul 2025 - Ago 2025",
   "technologies": "Flutter, Express.js, Firebase, Node.js, Firebase Authentication, Dart",
   "bullets": [
     "Desarrollo de aplicación móvil de identificación de llamadas enfocada en agentes inmobiliarios para verificación de exclusividad de clientes",
@@ -67,6 +66,17 @@ experiences = [
   ]
 }
 ,
+{
+  "title": "DESARROLLO DE SOFTWARE - Sistema para Restaurantes",
+  "company": "Isidro Libre & Gourmet - Gastronomía",
+  "period": "Abr 2025 - Jun 2025",
+  "technologies": "Node.js, PostgreSQL, Express, Typescript, TypeORM, JWT, Tailwind CSS",
+  "bullets": [
+    "Desarrollo de sistema de gestión de pedidos en tiempo real con control de stock y cierre automático diario utilizando Next.js y PostgreSQL.",
+    "Automatización de la deducción de materias primas al registrar ventas, optimizando la eficiencia del inventario.",
+    "Reducción de errores de entrada manual en un 30% mediante una interfaz de usuario simplificada y validación en el backend."
+  ]
+},
     {
   "title": "DESARROLLO DE INTELIGENCIA ARTIFICIAL - Visión Computacional",
   "company": "El Dorado",
@@ -82,12 +92,11 @@ experiences = [
     {
         "title": "DESARROLLO FULL STACK",
         "company": "Tienda del Fuego Accesorios",
-        "period": "Abr 2024 - May 2024", 
+        "period": "Feb 2024 - May 2024", 
         "technologies": "React, Node.js, MongoDB, Express, JavaScript, REST API",
         "bullets": [
             "Desarrollo completo de plataforma e-commerce con las funcionalidades de gestión de productos, usuarios, pedidos y envíos",
-            "Integración de API de pagos con MercadoPago y gestión de transacciones seguras mediante JWT",
-            "Desarrollo de dashboard administrativo con métricas de ventas y gestión de inventario utilizando React y Redux"
+            "Desarrollo de dashboard administrativo con métricas de ventas y gestión de inventario"
         ]
     },
     {
@@ -97,7 +106,7 @@ experiences = [
         "technologies": "Python, Power BI, ETL, SQL, Pandas, NumPy",
         "bullets": [
             "Creación de dashboards interactivos para visualización de KPIs operacionales utilizando Power BI",
-            "Análisis de grandes volúmenes de datos operativos para identificación de patrones y oportunidades de optimización"
+            "Análisis de grandes volúmenes de datos operativos para identificación de patrones y oportunidades"
         ]
     }
 ]
@@ -203,4 +212,4 @@ pdf.cell(0, 6, "Profesional (B2)", ln=True)
 pdf.ln(3)
 
 # Guardar PDF
-pdf.output("CV_EverLoza_FullStack_DataScience_ATS.pdf")
+pdf.output("CV_EverLoza_des.pdf")
