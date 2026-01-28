@@ -1,161 +1,181 @@
-from fpdf import FPDF
+from fpdf import FPDF, XPos, YPos
 
 class PDF(FPDF):
     def __init__(self):
         super().__init__()
-        self.set_margins(15, 15, 15)  # Márgenes balanceados para mejor legibilidad
-    
+        self.set_margins(15, 15, 15)
+
     def header(self):
-        # Encabezado con tamaños proporcionales mejorados
-        self.set_font("Helvetica", "B", 16)  # Tamaño reducido pero aún destacado
-        self.cell(0, 10, "EVER LOZA RUIZ", ln=True, align="C")
-        self.set_font("Helvetica", "B", 12)  # Tamaño reducido para ahorrar espacio
-        self.cell(0, 8, "Software & AI Developer | Técnico Superior en Ciencia de Datos e IA", ln=True, align="C")
-        
-        # Información de contacto (centrada y con mejor espaciado)
-        self.set_font("Helvetica", "", 10)  # Tamaño reducido para ahorrar espacio
-        self.cell(0, 7, "Rio Grande, Tierra del Fuego | everlozaruiz@gmail.com | +54 2964 452631", ln=True, align="C")
-        self.cell(0, 7, "Linkedin: www.linkedin.com/in/never130 | Github: www.github.com/never130 | Portfolio: https://everloza-porfolio.netlify.app", ln=True, align="C")
-          # Separado para evitar línea demasiado larga
-        self.ln(5)  # Espacio muy reducido para maximizar espacio
+        self.set_font("Helvetica", "B", 16)
+        self.cell(0, 10, "EVER LOZA RUIZ", new_x=XPos.LMARGIN, new_y=YPos.NEXT, align="C")
+        self.set_font("Helvetica", "B", 12)
+        self.cell(0, 8, "Software & AI Developer | Tecnico Superior en Ciencia de Datos e IA", new_x=XPos.LMARGIN, new_y=YPos.NEXT, align="C")
+
+        self.set_font("Helvetica", "", 10)
+        self.cell(0, 7, "Rio Grande, Tierra del Fuego | everlozaruiz@gmail.com | +54 2964 452631", new_x=XPos.LMARGIN, new_y=YPos.NEXT, align="C")
+        self.cell(0, 7, "LinkedIn: www.linkedin.com/in/never130 | GitHub: www.github.com/never130 | Portfolio: everloza-porfolio.netlify.app", new_x=XPos.LMARGIN, new_y=YPos.NEXT, align="C")
+        self.ln(5)
 
     def section_title(self, title):
-        # Títulos de sección más destacados
-        self.set_font("Helvetica", "B", 13)  # Tamaño reducido para secciones
-        # Línea subrayada para mejorar la estructura visual para ATS
-        self.cell(0, 8, title, ln=True)
+        self.set_font("Helvetica", "B", 13)
+        self.cell(0, 8, title, new_x=XPos.LMARGIN, new_y=YPos.NEXT)
         self.line(15, self.get_y(), 195, self.get_y())
         self.ln(2)
 
     def footer(self):
         self.set_y(-18)
-        self.set_font("Helvetica", "I", 10)  # Aumentado a 10 para mejor legibilidad
-        self.cell(0, 6, f"{self.page_no()}", 0, 0, 'C')
+        self.set_font("Helvetica", "I", 10)
+        self.cell(0, 6, f"{self.page_no()}", border=0, align="C")
 
-# Inicializar PDF
+
 pdf = PDF()
 pdf.set_auto_page_break(auto=True, margin=18)
 pdf.add_page()
 
-# Tamaños de fuente optimizados para 2 páginas
-normal_text = 10  # Reducido para ahorrar espacio
-small_text = 9    # Reducido para ahorrar espacio
-title_size = 13   # Reducido pero manteniendo jerarquía visual
+normal_text = 10
+small_text = 9
 
-# Perfil Profesional
+# PERFIL
 pdf.section_title("PERFIL PROFESIONAL")
 pdf.set_font("Helvetica", "", normal_text)
-pdf.multi_cell(0, 7,
-    "Software & AI Developer con formación técnica en Ciencia de Datos e Inteligencia Artificial. Experiencia demostrada en el desarrollo de aplicaciones web y móviles de extremo a extremo, integrando soluciones de backend, frontend y bases de datos modernas. Competente en múltiples stacks tecnológicos (JavaScript/TypeScript, Python, Node.js, React, Flutter, FastAPI, MongoDB) e implementación de soluciones basadas en datos. Capacidad para integrar análisis avanzados, visión computacional y modelos predictivos en sistemas productivos."
+pdf.multi_cell(
+    0, 7,
+    "Software & AI Developer con formacion tecnica en Ciencia de Datos e Inteligencia Artificial. "
+    "Experiencia en desarrollo de aplicaciones web y moviles end-to-end, integrando backend, frontend "
+    "y bases de datos modernas. Competente en JavaScript/TypeScript y Python (Node.js, Express, React, "
+    "FastAPI), integraciones con APIs y pipelines de datos. Capacidad para implementar funcionalidades "
+    "orientadas a producto, mejorar performance y llevar soluciones a produccion."
+    ,
+    new_x=XPos.LMARGIN,
+    new_y=YPos.NEXT,
 )
 pdf.ln(5)
 
-# Experiencia Laboral - Optimizado para ATS con palabras clave destacadas
+# EXPERIENCIA
 pdf.section_title("EXPERIENCIA LABORAL")
 
 experiences = [
+    # NUEVO: Agencia de Innovacion TDF
     {
-  "title": "DESARROLLO MÓVIL - App de Identificación de Llamadas",
-  "company": "Macrobow",
-  "period": "Jul 2025 - Ago 2025",
-  "technologies": "Flutter, Express.js, Firebase, Node.js, Firebase Authentication, Dart",
-  "bullets": [
-    "Desarrollo de aplicación móvil de identificación de llamadas enfocada en agentes inmobiliarios para verificación de exclusividad de clientes",
-    "Diseño de backend con Express.js y Firebase para sincronización de datos en tiempo real y autenticación de usuarios mediante SMS",
-    "Construcción de una interfaz móvil fluida e intuitiva con Flutter, adaptada a las necesidades del sector inmobiliario"
-  ]
-}
-,
-{
-  "title": "DESARROLLO DE SOFTWARE - Sistema para Restaurantes",
-  "company": "Isidro Libre & Gourmet - Gastronomía",
-  "period": "Abr 2025 - Jun 2025",
-  "technologies": "Node.js, PostgreSQL, Express, Typescript, TypeORM, JWT, Tailwind CSS",
-  "bullets": [
-    "Desarrollo de sistema de gestión de pedidos en tiempo real con control de stock y cierre automático diario utilizando Next.js y PostgreSQL.",
-    "Automatización de la deducción de materias primas al registrar ventas, optimizando la eficiencia del inventario.",
-    "Reducción de errores de entrada manual en un 30% mediante una interfaz de usuario simplificada y validación en el backend."
-  ]
-},
-    {
-  "title": "DESARROLLO DE INTELIGENCIA ARTIFICIAL - Visión Computacional",
-  "company": "El Dorado",
-  "period": "Abr 2025 - Jun 2025",
-  "technologies": "FastAPI, MongoDB, React, YOLOv8, OpenCV, WebSockets, Tailwind CSS, Axios, JavaScript, Python",
-  "bullets": [
-    "Desarrollo de sistema de visión computacional para detección automática de números en vagonetas mediante modelos YOLOv8 entrenados",
-    "Diseño de backend con FastAPI y MongoDB para almacenamiento persistente, API REST y notificaciones en tiempo real vía WebSockets",
-    "Implementación de procesamiento de imágenes y video, incluyendo carga manual y captura automática desde cámaras configurables",
-  ]
-}
-,
-    {
-        "title": "DESARROLLO FULL STACK",
-        "company": "Tienda del Fuego Accesorios",
-        "period": "Feb 2024 - May 2024", 
-        "technologies": "React, Node.js, MongoDB, Express, JavaScript, REST API",
+        "title": "DESARROLLADOR FULL STACK",
+        "company": "Agencia de Innovacion TDF (Gobierno de Tierra del Fuego)",
+        "period": "Nov 2025 - Actualidad",
+        "technologies": "Python, Django/FastAPI, TypeScript, REST APIs, Integraciones, Git",
         "bullets": [
-            "Desarrollo completo de plataforma e-commerce con las funcionalidades de gestión de productos, usuarios, pedidos y envíos",
-            "Desarrollo de dashboard administrativo con métricas de ventas y gestión de inventario"
+            "Desarrollo y mantenimiento de funcionalidades backend y frontend en plataformas institucionales.",
+            "Implementacion de integraciones con servicios externos y mejoras de performance y estabilidad en produccion.",
+            "Colaboracion con equipos internos para analisis de requerimientos, entregas incrementales y correccion de incidencias."
         ]
     },
+
+    # NUEVO: PachaMates
     {
-        "title": "ANALISTA DE DATOS",
-        "company": "Aeropuerto Internacional Trejo Noel",
-        "period": "Mar 2024 - Ago 2024",
-        "technologies": "Python, Power BI, ETL, SQL, Pandas, NumPy",
+        "title": "SOFTWARE DEVELOPER - E-commerce Full Stack",
+        "company": "PachaMates (E-commerce artesanal)",
+        "period": "Oct 2025 - Dic 2025",
+        "technologies": "React, TypeScript, Node.js, Express, MongoDB, JWT, MercadoPago (Checkout Pro), Webhooks",
         "bullets": [
-            "Creación de dashboards interactivos para visualización de KPIs operacionales utilizando Power BI",
-            "Análisis de grandes volúmenes de datos operativos para identificación de patrones y oportunidades"
+            "Desarrollo full stack de e-commerce: catalogo, busqueda, categorias, carrito persistente y checkout completo.",
+            "Integracion de pagos con MercadoPago (Checkout Pro) con return URLs y webhook backend para validacion en tiempo real.",
+            "Implementacion de gestion de envios con calculo de tarifas y seguimiento; historial de ordenes y gestion de direcciones.",
+            "Panel administrador para productos, pedidos, reportes y usuarios; arquitectura SPA + API lista para despliegue."
         ]
-    }
+    },
+
+    # # Macrobow
+    # {
+    #     "title": "DESARROLLO MOVIL - App de Identificacion de Llamadas",
+    #     "company": "Macrobow",
+    #     "period": "Jul 2025 - Ago 2025",
+    #     "technologies": "Flutter, Express.js, Firebase, Node.js, Firebase Authentication, Dart",
+    #     "bullets": [
+    #         "Desarrollo de aplicacion movil de identificacion de llamadas enfocada en agentes inmobiliarios para verificacion de exclusividad de clientes.",
+    #         "Diseno de backend con Express.js y Firebase para sincronizacion de datos en tiempo real y autenticacion mediante SMS.",
+    #         "Construccion de una interfaz movil fluida e intuitiva con Flutter, adaptada al flujo de trabajo del sector inmobiliario."
+    #     ]
+    # },
+
+    # Isidro Libre & Gourmet
+    {
+        "title": "DESARROLLO DE SOFTWARE - Sistema para Restaurantes",
+        "company": "Isidro Libre & Gourmet (Gastronomia)",
+        "period": "Abr 2025 - Jun 2025",
+        "technologies": "Node.js, PostgreSQL, Express, TypeScript, TypeORM, JWT, Tailwind CSS",
+        "bullets": [
+            "Desarrollo de sistema de gestion de pedidos con control de stock y cierre automatico diario.",
+            "Automatizacion de deduccion de materias primas al registrar ventas, optimizando la gestion de inventario.",
+            "Reduccion de errores de carga manual mediante validaciones en backend y mejoras de interfaz."
+        ]
+    },
+
+    # El Dorado
+    {
+        "title": "DESARROLLO DE IA - Vision Computacional",
+        "company": "El Dorado",
+        "period": "Abr 2025 - Jun 2025",
+        "technologies": "Python, FastAPI, MongoDB, React, YOLOv8, OpenCV, WebSockets, Tailwind CSS",
+        "bullets": [
+            "Desarrollo de sistema de vision computacional para deteccion de numeros en vagonetas mediante modelos YOLOv8 entrenados.",
+            "Diseno de backend con FastAPI y MongoDB para almacenamiento persistente, API REST y notificaciones en tiempo real via WebSockets.",
+            "Implementacion de procesamiento de imagenes y video, con carga manual y captura automatica desde camaras configurables."
+        ]
+    },
+
+    # Tienda del Fuego (corregido a Actualidad)
+    {
+        "title": "DESARROLLO FULL STACK - E-commerce",
+        "company": "Tienda del Fuego Accesorios",
+        "period": "Abr 2024 - Dec 2024",
+        "technologies": "React, Node.js, MongoDB, Express, JavaScript/TypeScript, REST API, MercadoPago",
+        "bullets": [
+            "Desarrollo de plataforma e-commerce con gestion de productos, usuarios, pedidos y envios.",
+            "Implementacion de pagos integrados con MercadoPago y mejoras en el flujo de compra.",
+            "Desarrollo de dashboard administrativo con metricas de ventas y gestion de inventario."
+        ]
+    },
+
+    # Aeropuerto
+    # {
+    #     "title": "ANALISTA DE DATOS",
+    #     "company": "Aeropuerto Internacional Trejo Noel",
+    #     "period": "Mar 2024 - Ago 2024",
+    #     "technologies": "Python, Power BI, ETL, SQL, Pandas, NumPy",
+    #     "bullets": [
+    #         "Creacion de dashboards interactivos para visualizacion de KPIs operacionales utilizando Power BI.",
+    #         "Analisis de grandes volumenes de datos para identificar patrones y oportunidades de optimizacion."
+    #     ]
+    # }
 ]
 
 for exp in experiences:
     pdf.set_font("Helvetica", "B", normal_text)
-    pdf.cell(0, 7, f"{exp['title']} | {exp['company']}", ln=True)
+    pdf.cell(0, 7, f"{exp['title']} | {exp['company']}", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
+
     pdf.set_font("Helvetica", "I", small_text)
-    pdf.cell(0, 6, f"{exp['period']} | {exp['technologies']}", ln=True)
+    pdf.cell(0, 6, f"{exp['period']} | {exp['technologies']}", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
+
     pdf.set_font("Helvetica", "", normal_text)
     for bullet in exp["bullets"]:
-        pdf.cell(8, 6, "-", ln=0)  # Guion como bullet point compatible con latin1
-        pdf.cell(4, 6, "", ln=0)   # Espacio después del bullet
-        pdf.multi_cell(0, 5.5, bullet)
+        x_left = pdf.l_margin
+        pdf.set_x(x_left)
+        pdf.cell(4, 5.5, "-", new_x=XPos.RIGHT, new_y=YPos.TOP)
+        pdf.set_x(x_left + 8)
+        pdf.multi_cell(0, 5.5, bullet, new_x=XPos.LMARGIN, new_y=YPos.NEXT)
     pdf.ln(2)
 
-# Habilidades Técnicas - Formato para mejor detección ATS
-# pdf.section_title("HABILIDADES TÉCNICAS")
-# skills = [
-#     ("Lenguajes de Programación:", "Python, JavaScript, TypeScript, SQL, Java"),
-#     ("Desarrollo Frontend:", "React, HTML5, CSS3, Bootstrap, Redux, Responsive Design"),
-#     ("Desarrollo Backend:", "Node.js, Express, FastAPI, Django, REST APIs, Microservicios"),
-#     ("Ciencia de Datos e IA:", "Pandas, NumPy, Scikit-learn, Power BI, Tableau, Machine Learning"),
-#     ("Bases de Datos:", "MongoDB, PostgreSQL, MySQL, Redis, Diseño de esquemas"),
-#     ("Cloud & DevOps:", "AWS (EC2, S3), Google Cloud Platform, Docker, CI/CD, Git")
-# ]
-
-# for skill, details in skills:
-#     pdf.set_font("Helvetica", "B", normal_text)
-#     pdf.cell(55, 6, skill, ln=0)  # Reducido para ahorrar espacio
-#     pdf.set_font("Helvetica", "", normal_text)
-#     pdf.multi_cell(0, 6, details)
-# pdf.ln(5)
-
-# Segunda Página
-
-# Formación Académica
-pdf.section_title("FORMACIÓN ACADÉMICA")
+# FORMACION
+pdf.section_title("FORMACION ACADEMICA")
 pdf.set_font("Helvetica", "B", normal_text)
-pdf.cell(0, 7, "Técnico Superior en Ciencias de Datos e Inteligencia Artificial", ln=True)
+pdf.cell(0, 7, "Tecnico Superior en Ciencias de Datos e Inteligencia Artificial", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
 pdf.set_font("Helvetica", "", small_text)
-pdf.cell(0, 6, "Centro Politécnico Superior Malvinas Argentinas | 2023-2025", ln=True)
+pdf.cell(0, 6, "Centro Politecnico Superior Malvinas Argentinas | 2023 - 2025", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
 pdf.ln(4)
 
-# Certificaciones - Formato mejorado para ATS
+# CERTIFICACIONES
 pdf.section_title("CERTIFICACIONES RELEVANTES")
 certs = [
     {"title": "SQL/NodeJS", "issuer": "Alkemy", "hours": "160h"},
-    {"title": "Desarrollo Web Full Stack", "issuer": "Ministerio de Educación BA", "hours": "200h"},
+    {"title": "Desarrollo Web Full Stack", "issuer": "Ministerio de Educacion BA", "hours": "200h"},
     {"title": "Google Cloud Computing Fundamentals", "issuer": "Google", "hours": "40h"},
     {"title": "Algoritmos de JavaScript y Estructuras de Datos", "issuer": "FreeCodeCamp", "hours": "300h"},
     {"title": "Desarrollo Back End y APIs", "issuer": "FreeCodeCamp", "hours": "300h"},
@@ -163,53 +183,59 @@ certs = [
 
 pdf.set_font("Helvetica", "", normal_text)
 for cert in certs:
-    pdf.cell(8, 7, "-", ln=0)  # Guion como bullet point
-    pdf.cell(4, 7, "", ln=0)   # Espacio
-    pdf.multi_cell(0, 6, f"{cert['title']} - {cert['issuer']} ({cert['hours']})")
+    x_left = pdf.l_margin
+    pdf.set_x(x_left)
+    pdf.cell(4, 6, "-", new_x=XPos.RIGHT, new_y=YPos.TOP)
+    pdf.set_x(x_left + 8)
+    pdf.multi_cell(0, 6, f"{cert['title']} - {cert['issuer']} ({cert['hours']})", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
 pdf.ln(2)
 
-# Proyectos Destacados - Optimizados para ATS
+# PROYECTOS
 pdf.section_title("PROYECTOS DESTACADOS")
 projects = [
     {
-        "title": "Predicción de Energía Eólica con Machine Learning",
+        "title": "Prediccion de Energia Eolica con Machine Learning",
         "tech": "Python, Scikit-learn, Pandas",
         "bullets": [
-            "Desarrollo de modelo predictivo basado en Random Forest con 92% de precisión para pronóstico de generación eólica",
-            "Procesamiento y limpieza de datasets con más de 20,000 registros históricos utilizando Pandas y NumPy",
+            "Desarrollo de modelo predictivo basado en Random Forest con 92% de precision para pronostico de generacion eolica.",
+            "Procesamiento y limpieza de datasets con mas de 20.000 registros historicos con Pandas y NumPy."
         ]
     },
     {
-        "title": "Sistema Experto para el Diagnóstico de Enfermedades Respiratorias",
+        "title": "Sistema Experto para Diagnostico de Enfermedades Respiratorias",
         "tech": "Python, Flask, DecisionTree, JSON, Next.js, Tailwind CSS",
         "bullets": [
-            "Desarrollo de sistema experto híbrido para diagnóstico de enfermedades respiratorias utilizando reglas médicas SI-ENTONCES y modelos de Machine Learning",
-            "Implementación de backend con Flask y motor de inferencia desacoplado capaz de evaluar reglas personalizables y respaldarse con modelos de árbol de decisión",
-            "Diseño de frontend moderno con Next.js y Tailwind CSS, con interfaz intuitiva para ingreso de síntomas, visualización de resultados y gestión de reglas",
+            "Sistema experto hibrido con reglas SI-ENTONCES y modelo ML con explicabilidad para apoyo diagnostico.",
+            "Backend con Flask y motor de inferencia desacoplado para evaluar reglas personalizables.",
+            "Frontend con Next.js y Tailwind CSS para ingreso de sintomas, resultados y gestion de reglas."
         ]
     }
 ]
 
 for project in projects:
     pdf.set_font("Helvetica", "B", normal_text)
-    pdf.cell(0, 7, project["title"], ln=True)
+    pdf.cell(0, 7, project["title"], new_x=XPos.LMARGIN, new_y=YPos.NEXT)
+
     pdf.set_font("Helvetica", "I", small_text)
-    pdf.cell(0, 6, f"Tecnologías: {project['tech']}", ln=True)  # Tecnologías explícitas para ATS
+    pdf.cell(0, 6, f"Tecnologias: {project['tech']}", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
+
     pdf.set_font("Helvetica", "", normal_text)
     for bullet in project["bullets"]:
-        pdf.cell(8, 6, "-", ln=0)  # Guion como bullet point
-        pdf.cell(4, 6, "", ln=0)   # Espacio
-        pdf.multi_cell(0, 6, bullet)
+        x_left = pdf.l_margin
+        pdf.set_x(x_left)
+        pdf.cell(4, 6, "-", new_x=XPos.RIGHT, new_y=YPos.TOP)
+        pdf.set_x(x_left + 8)
+        pdf.multi_cell(0, 6, bullet, new_x=XPos.LMARGIN, new_y=YPos.NEXT)
     pdf.ln(3)
 
-# Idiomas - Sección adicional para ATS
+# IDIOMAS
 pdf.section_title("IDIOMAS")
 pdf.set_font("Helvetica", "", normal_text)
-pdf.cell(40, 6, "Español:", ln=0)
-pdf.cell(40, 6, "Nativo", ln=0)
-pdf.cell(40, 6, "Inglés:", ln=0)
-pdf.cell(0, 6, "Profesional (B2)", ln=True)
+pdf.cell(40, 6, "Espanol:", new_x=XPos.RIGHT, new_y=YPos.TOP)
+pdf.cell(40, 6, "Nativo", new_x=XPos.RIGHT, new_y=YPos.TOP)
+pdf.cell(40, 6, "Ingles:", new_x=XPos.RIGHT, new_y=YPos.TOP)
+pdf.cell(0, 6, "Profesional (B2)", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
 pdf.ln(3)
 
-# Guardar PDF
 pdf.output("CV_EverLoza_des.pdf")
+print("OK - CV_EverLoza_des.pdf generado")
